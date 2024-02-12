@@ -14,7 +14,8 @@ pipeline {
     }
     stage ('Check-Git-Secrets') {
       steps {
-        sh 'trufflehog3 https://github.com/electro-16/webapp.git -f json -o truffelhog_output.json || true'
+        sh 'rm trufflehog3 || true'
+        sh 'trufflehog3 https://github.com/electro-16/webapp.git -f json > tufflehog3 '
       }
     }
    stage ('Build') {
