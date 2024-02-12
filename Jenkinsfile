@@ -12,6 +12,13 @@ pipeline {
            '''
       }
     }
+    stage ('Check-Git-Secrets') {
+      steps {
+        sh 'rm trufflehog || true'
+        sh 'docker run trufflesecurity/trufflehog --json https://github.com/electro-16/webapp.git > trufflehog'
+        sh 'cat trufflehog'
+      }
+    }
    stage ('Build') {
      steps {
        sh 'mvn clean package'
