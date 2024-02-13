@@ -44,7 +44,7 @@ pipeline {
       steps {
         withSonarQubeEnv('sonar') {
           sh 'mvn sonar:sonar'
-	        sh 'cat target/sonar/report-task.txt'
+	  sh './sonarqube_report.sh'
         }
       }
     }
