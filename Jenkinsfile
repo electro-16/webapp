@@ -40,19 +40,11 @@ pipeline {
       }
     }
     
-   //  stage ('Static analysis') {
-   //    steps {
-   //      withSonarQubeEnv('sonar') {
-   //        sh 'mvn sonar:sonar'
-	  // sh './sonarqube_report.sh'
-   //      }
-   //    }
-   //  }
-	stage ('Static analysis') {
-      	 steps {
-           withSonarQubeEnv('sonar') {
-             sh 'mvn clean sonar:sonar'
-	     //sh 'cat target/sonar/report-task.txt'
+  
+  stage ('Static analysis') {
+    steps {
+      withSonarQubeEnv('sonar') {
+        sh 'mvn clean sonar:sonar'
         }
       }
     }
