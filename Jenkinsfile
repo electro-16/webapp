@@ -42,9 +42,10 @@ pipeline {
     
   
   stage ('Static analysis') {
-    steps {
+    steps { 
       withSonarQubeEnv('sonar') {
-        sh 'mvn clean sonar:sonar'
+        sh 'mvn sonar:sonar'
+	sh './sonarqube_report.sh'
         }
       }
     }
