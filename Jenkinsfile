@@ -66,7 +66,7 @@ pipeline {
 	 stage ('Dynamic analysis') {
             steps {
            sshagent(['zap']) {
-                sh 'ssh -o  StrictHostKeyChecking=no ubuntu@18.206.126.161 "sudo docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.204.71.64:8080/Webapp" '
+                sh 'ssh -o  StrictHostKeyChecking=no ubuntu@18.206.126.161 "sudo docker run -t owasp/zap2docker-stable zap-baseline.py -t http://44.204.71.64:8080/webapp" '
 		//sh 'ssh -o  StrictHostKeyChecking=no ubuntu@65.1.84.186 "sudo ./zap_report.sh"'
               }      
            }       
