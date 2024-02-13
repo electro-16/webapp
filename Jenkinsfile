@@ -51,7 +51,7 @@ pipeline {
 	stage ('Static analysis') {
       	 steps {
            withSonarQubeEnv('sonar') {
-             sh 'mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:5.0.1.3006:sonar'
+             sh 'mvn clean sonar:sonar'
 	     //sh 'cat target/sonar/report-task.txt'
         }
       }
